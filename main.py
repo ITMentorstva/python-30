@@ -1,30 +1,28 @@
 
-import matplotlib.pyplot as plt
 
-x = [
-    "januar", "februar", "mart", "april",
-    "maj",  "jun",  "jul", "avgust",
-    "septembar", "oktobar", "novembar", "decembar"
-]
-y_2024 = [23, 31, 27, 35, 22, 26, 19, 24, 18, 30, 25, 33]
-y_2025 = [12, 18, 10, 25, 19, 30, 22, 27, 20, 35, 28, 40]
+# [ [1,5,6], [1,22,55], [69, 55, 22] ] 3x3 Matrix
 
-plt.plot(x, y_2024, label='2024', marker='o', color='red')
-plt.plot(x, y_2025, label='2025', marker='s', color='green', linestyle='--')
+import random
+import numpy as np
 
-plt.xlabel('Meseci u godini')
-plt.ylabel('Broj ucenika')
-plt.title("Broj ucenika tokom godine")
+matrix = []
 
-plt.legend()
-plt.grid(True)
+for i in range(3):
+    row = []
 
-plt.annotate("Godisnji odmor",
-    xy=("jul", 20),
-    xytext=("jul", 25),
-    arrowprops=dict(facecolor='black', shrink=0.25)
-)
+    for number in range(3):
+        random_number = random.randint(1, 100)
+        row.append(random_number)
 
-plt.scatter("jul", 20, s=100, zorder=5, color="black")
+    matrix.append(row)
 
-plt.show()
+print(matrix)
+
+# Novijim standardima
+matrix_full = [ [random.randint(1,100) for _ in range(3)] for _ in range(3) ]
+print(matrix_full)
+
+
+# Primer matrixa sa Numpy
+matrix_numpy = np.random.randint(1, 11, size=(3, 3))
+print(matrix_numpy)
